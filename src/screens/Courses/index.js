@@ -1,3 +1,4 @@
+
 import React, { Component } from "react";
 import {
   Container,
@@ -16,46 +17,27 @@ import {
 } from "native-base";
 import styles from "./styles";
 
-const sankhadeep = require("../../../assets/contacts/sankhadeep.png");
-const supriya = require("../../../assets/contacts/supriya.png");
-const himanshu = require("../../../assets/contacts/himanshu.png");
-const shweta = require("../../../assets/contacts/shweta.png");
-const shruti = require("../../../assets/contacts/shruti.png");
-const shivraj = require("../../../assets/contacts/shivraj.jpg");
+import MySwiper from "./swiper/index";
+
 const datas = [
-  // {
-  //   img: sankhadeep,
-  //   text: "Sankhadeep",
-  //   note: "Its time to build a difference . ."
-  // },
-  // {
-  //   img: supriya,
-  //   text: "Supriya",
-  //   note: "One needs courage to be happy and smiling all time . . "
-  // },
-  // {
-  //   img: shivraj,
-  //   text: "Shivraj",
-  //   note: "Time changes everything . ."
-  // },
   {
-    img: shruti,
+    img: {uri: 'logo_naati'},
     text: "NATTI",
     note: "This is NATTI!"
   },
   {
-    img: himanshu,
+    img: {uri: 'logo_cclt'},
     text: "CCLT",
     note: "This is CCLT!"
   },
   {
-    img: shweta,
+    img: {uri: 'logo_pte'},
     text: "PTE",
     note: "This is PTE!"
   }
 ];
 
-class Course extends Component {
+class Courses extends Component {
   render() {
     return (
       <Container style={styles.container}>
@@ -74,10 +56,14 @@ class Course extends Component {
           <Right />
         </Header>
 
-        <Content padder>
+        <Content style={{flex: 1}}>
+
+          {/*轮播图*/}
+          <MySwiper />
 
 
-          <List
+          {/*height={500}，轮播图和下面列表，上下高度看起来合适，不知如何规范调整？*/}
+          <List height={500}
               dataArray={datas}
               renderRow={data =>
                   <ListItem thumbnail>
@@ -99,22 +85,10 @@ class Course extends Component {
                     </Right>
                   </ListItem>}
           />
-
-          {/*<Text>Nat555tie</Text>*/}
-          {/*<Text>CCLT</Text>*/}
-          {/*<Text>PTE</Text>*/}
         </Content>
-
-        {/*<Footer>*/}
-          {/*<FooterTab>*/}
-            {/*<Button active full>*/}
-              {/*<Text>Footer</Text>*/}
-            {/*</Button>*/}
-          {/*</FooterTab>*/}
-        {/*</Footer>*/}
       </Container>
     );
   }
 }
 
-export default Course;
+export default Courses;

@@ -1,16 +1,21 @@
+
 import React from "react";
 import { Root } from "native-base";
 import { StackNavigator, DrawerNavigator } from "react-navigation";
 
-import Course from "./screens/Course/";
-import SideBar from "./screens/sidebar";
+import SideBar from "./screens/SideBar";
+import Courses from "./screens/Courses";
+
+import MyCourses from "./screens/MyCourses";
+// import MyCourseCard from "./screens/MyCourses/MyCourseCard";
 
 const Drawer = DrawerNavigator(
   {
-    Course: { screen: Course },
+    Courses: { screen: Courses },
+    MyCourses: { screen: MyCourses }
   },
   {
-    initialRouteName: "Course",
+    initialRouteName: "Courses",
     contentOptions: {
       activeTintColor: "#e91e63"
     },
@@ -21,6 +26,8 @@ const Drawer = DrawerNavigator(
 const AppNavigator = StackNavigator(
   {
     Drawer: { screen: Drawer },
+
+    // MyCourseCard: { screen: MyCourseCard },
   },
   {
     initialRouteName: "Drawer",

@@ -3,7 +3,7 @@
  * https://github.com/facebook/react-native
  * @flow
  */
-//
+
 // import React, { Component } from 'react';
 // import {
 //   Platform,
@@ -62,7 +62,8 @@ import Setup from "./src/boot/setup";
 
 /**
  * npm install native-base --save       添加 native-base 框架命令
- * npm install --save react-navigation  添加 react-navigation 框架命令
+ * npm install --save react-navigation  添加 react-navigation 命令 （导航）
+ * npm i react-native-swiper --save     添加 react-native-swiper 命令 （轮播图）
  *
  * react-native link react-native-vector-icons
  * react-native link
