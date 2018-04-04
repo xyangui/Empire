@@ -1,8 +1,8 @@
 /**
  * 我的课程页面
  */
-import React, { Component } from "react";
-import { Image } from "react-native";
+import React, {Component} from "react";
+import {Image} from "react-native";
 import {
   Container,
   Header,
@@ -16,78 +16,104 @@ import {
   Right,
   Card,
   CardItem,
-  Thumbnail
+  Thumbnail,
+  List
 } from "native-base";
 import styles from "./styles";
 
 const cardImage = require("./mycourse_cover.png");
 
+const datas = [
+  {
+    img: {uri: 'logo_naati'},
+    title: "NATTI",
+    text: "Empire"
+  },
+  {
+    img: {uri: 'logo_cclt'},
+    title: "CCLT",
+    text: "Empire"
+  },
+  {
+    img: {uri: 'logo_pte'},
+    title: "PTE",
+    text: "Empire"
+  }
+];
+
 class MyCourses extends Component {
   render() {
     return (
-      <Container style={styles.container}>
-        <Header>
-          <Left>
-            <Button
-              transparent
-              onPress={() => this.props.navigation.navigate("DrawerOpen")}
-            >
-              <Icon name="menu" />
-            </Button>
-          </Left>
-          <Body>
-            <Title>My Courses</Title>
-          </Body>
-          <Right />
-        </Header>
-
-
-        <Content padder>
-          <Card style={styles.mb}>
-            <CardItem>
-              <Left>
-                <Thumbnail source={{uri:'logo_cclt'}} />
-                <Body>
-                <Text>CCLT</Text>
-                <Text note>Empire</Text>
-                </Body>
-              </Left>
-            </CardItem>
-
-            <CardItem cardBody>
-              <Image
-                  style={{
-                    resizeMode: "cover",
-                    width: null,
-                    height: 200,
-                    flex: 1
-                  }}
-                  source={cardImage}
-              />
-            </CardItem>
-
-            <CardItem style={{ paddingVertical: 0 }}>
-              <Left>
-                <Button transparent>
-                  <Icon active name="ios-photos" />
-                  <Text>Unit</Text>
-                </Button>
-              </Left>
-              <Body>
-              <Button transparent>
-                <Icon active name="ios-school" />
-                <Text>Class</Text>
+        <Container style={styles.container}>
+          <Header>
+            <Left>
+              <Button
+                  transparent
+                  onPress={() => this.props.navigation.navigate("DrawerOpen")}
+              >
+                <Icon name="menu"/>
               </Button>
-              </Body>
-              <Right>
-                {/*<Text>11h ago</Text>*/}
-              </Right>
-            </CardItem>
-          </Card>
-        </Content>
+            </Left>
+            <Body>
+            <Title>My Courses</Title>
+            </Body>
+            <Right/>
+          </Header>
 
 
-      </Container>
+          <Content padder>
+            <List dataArray={datas}
+                  renderRow={data =>
+
+                      <Card style={styles.mb}>
+                        <CardItem>
+                          <Left>
+                            <Thumbnail source={data.img}/>
+                            <Body>
+                            <Text>{data.title}</Text>
+                            <Text note>{data.text}</Text>
+                            </Body>
+                          </Left>
+                        </CardItem>
+
+                        <CardItem cardBody>
+                          <Image
+                              style={{
+                                resizeMode: "cover",
+                                width: null,
+                                height: 200,
+                                flex: 1
+                              }}
+                              source={cardImage}
+                          />
+                        </CardItem>
+
+                        <CardItem style={{paddingVertical: 0}}>
+                          <Left>
+                            <Button transparent>
+                              <Icon active name="ios-photos"/>
+                              <Text>Unit</Text>
+                            </Button>
+                          </Left>
+                          <Body>
+                          <Button transparent>
+                            <Icon active name="ios-school"/>
+                            <Text>Class</Text>
+                          </Button>
+                          </Body>
+                          <Right>
+                            {/*<Text>11h ago</Text>*/}
+                          </Right>
+                        </CardItem>
+                      </Card>
+                  }
+            />
+          </Content>
+
+
+          <Text />
+          <Text />
+        </Container>
     );
   }
 }
