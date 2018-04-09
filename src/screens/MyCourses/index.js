@@ -90,13 +90,21 @@ class MyCourses extends Component {
 
                         <CardItem style={{paddingVertical: 0}}>
                           <Left>
-                            <Button transparent>
+                            <Button
+                                transparent
+                                onPress={() => this.props.navigation.navigate("Unit", {CoursesName: data.title})}
+                            >
+                              {/*{CoursesName: data.title} 为需要传递的参数，CoursesName为key*/}
+
                               <Icon active name="ios-photos"/>
                               <Text>Unit</Text>
                             </Button>
                           </Left>
                           <Body>
-                          <Button transparent>
+                          <Button
+                              transparent
+                              onPress={() => this.props.navigation.navigate("MyClass", {CoursesName: data.title})}
+                          >
                             <Icon active name="ios-school"/>
                             <Text>Class</Text>
                           </Button>

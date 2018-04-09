@@ -7,12 +7,13 @@ import SideBar from "./screens/SideBar";
 import Courses from "./screens/Courses";
 
 import MyCourses from "./screens/MyCourses";
-// import MyCourseCard from "./screens/MyCourses/MyCourseCard";
+import Unit from "./screens/MyCourses/unit";
+import MyClass from "./screens/MyCourses/class";
 
 const Drawer = DrawerNavigator(
   {
-    Courses: { screen: Courses },
-    MyCourses: { screen: MyCourses }
+    Courses: {screen: Courses},
+    MyCourses: {screen: MyCourses}
   },
   {
     initialRouteName: "Courses",
@@ -25,9 +26,10 @@ const Drawer = DrawerNavigator(
 
 const AppNavigator = StackNavigator(
   {
-    Drawer: { screen: Drawer },
+    Drawer: {screen: Drawer},
 
-    // MyCourseCard: { screen: MyCourseCard },
+    Unit: {screen: Unit},
+    MyClass: {screen: MyClass},
   },
   {
     initialRouteName: "Drawer",
